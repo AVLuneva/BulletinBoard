@@ -1,4 +1,4 @@
-using Infrastructure;
+using BulletinBoard.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,7 +8,7 @@ using NSwag;
 using NSwag.Generation.Processors.Security;
 using System.Linq;
 
-namespace WebUI
+namespace BulletinBoard.WebUI
 {
     public class Startup
     {

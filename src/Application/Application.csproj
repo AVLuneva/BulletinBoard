@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+	<RootNamespace>BulletinBoard.Application</RootNamespace>
+	<AssemblyName>BulletinBoard.Application</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

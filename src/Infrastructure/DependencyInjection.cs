@@ -1,13 +1,13 @@
-﻿using Application.Common.Interfaces;
-using Infrastructure.Identity;
-using Infrastructure.Persistence;
+﻿using BulletinBoard.Application.Common.Interfaces;
+using BulletinBoard.Infrastructure.Identity;
+using BulletinBoard.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure
+namespace BulletinBoard.Infrastructure
 {
     public static class DependencyInjection
     {

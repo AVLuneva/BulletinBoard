@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
-using Infrastructure.Persistence;
+using BulletinBoard.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace WebUI
+namespace BulletinBoard.WebUI
 {
     public class Program
     {

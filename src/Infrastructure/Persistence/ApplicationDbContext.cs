@@ -1,12 +1,12 @@
-﻿using Application.Common.Interfaces;
+﻿using BulletinBoard.Application.Common.Interfaces;
 using IdentityServer4.EntityFramework.Options;
-using Infrastructure.Identity;
+using BulletinBoard.Infrastructure.Identity;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Reflection;
 
-namespace Infrastructure.Persistence
+namespace BulletinBoard.Infrastructure.Persistence
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, IApplicationDbContext
     {
