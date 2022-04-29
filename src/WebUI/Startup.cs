@@ -26,6 +26,7 @@ namespace BulletinBoard.WebUI
             services.AddInfrastructure(Configuration);
 
             services.AddControllers();
+            services.AddRazorPages();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -76,6 +77,7 @@ namespace BulletinBoard.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
 
