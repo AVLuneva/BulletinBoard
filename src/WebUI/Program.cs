@@ -1,7 +1,9 @@
 using System;
 using System.Threading.Tasks;
+using BulletinBoard.Infrastructure.Identity;
 using BulletinBoard.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,6 +24,11 @@ namespace BulletinBoard.WebUI
                 var context = services.GetRequiredService<ApplicationDbContext>();
 
                 await context.Database.MigrateAsync();
+
+                var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+                await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
             }
             catch (Exception ex)
             {
