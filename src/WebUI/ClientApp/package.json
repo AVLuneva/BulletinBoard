@@ -1,10 +1,14 @@
 {
-  "name": "client-app",
+  "name": "bulletinboard.webui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "prestart": "node aspnetcore-https",
+    "start": "run-script-os",
+    "start:windows": "ng serve --port 44447 --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\"",
+    "start:default": "ng serve --port 44447 --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\"",
     "build": "ng build",
+    "build:ssr": "ng run bulletinboard.webui:server:dev",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -22,7 +26,8 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^5.3.1",
     "font-awesome": "^4.7.0",
-    "oidc-client": "^1.9.0",
+    "oidc-client": "^1.11.5",
+    "run-script-os": "^1.1.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
