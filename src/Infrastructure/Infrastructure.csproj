@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
 	<RootNamespace>BulletinBoard.Infrastructure</RootNamespace>
 	<AssemblyName>BulletinBoard.Infrastructure</AssemblyName>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

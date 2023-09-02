@@ -1,6 +1,5 @@
 ﻿using NSwag.Generation.Processors.Security;
 using NSwag;
-using System.Linq;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
