@@ -1,4 +1,5 @@
-﻿using BulletinBoard.Infrastructure.Identity;
+﻿using BulletinBoard.Domain.Entities;
+using BulletinBoard.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -66,6 +67,45 @@ public class ApplicationDbContextInitialiser
             {
                 await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
+        }
+
+        // Default data
+        // Seed, if necessary
+        if (!_context.Boards.Any())
+        {
+            _context.Boards.AddRange(
+                new Board
+                {
+                    Title = "Тема 1",
+                    Bulletins =
+                    {
+                        new Bulletin { Title = "Пост 1.1", Text = "Текст поста 1.1" },
+                        new Bulletin { Title = "Пост 1.2", Text = "Текст поста 1.2" },
+                        new Bulletin { Title = "Пост 1.3", Text = "Текст поста 1.3" },
+                    }
+                },
+                new Board
+                {
+                    Title = "Тема 2",
+                    Bulletins =
+                    {
+                        new Bulletin { Title = "Пост 2.1", Text = "Текст поста 2.1" },
+                        new Bulletin { Title = "Пост 2.2", Text = "Текст поста 2.2" },
+                        new Bulletin { Title = "Пост 2.3", Text = "Текст поста 2.3" },
+                    }
+                },
+                new Board
+                {
+                    Title = "Тема 3",
+                    Bulletins =
+                    {
+                        new Bulletin { Title = "Пост 3.1", Text = "Текст поста 3.1" },
+                        new Bulletin { Title = "Пост 3.2", Text = "Текст поста 3.2" },
+                        new Bulletin { Title = "Пост 3.3", Text = "Текст поста 3.3" },
+                    }
+                });
+
+            await _context.SaveChangesAsync();
         }
     }
 }

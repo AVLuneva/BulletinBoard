@@ -1,6 +1,8 @@
 ﻿using BulletinBoard.Application.Common.Interfaces;
 using BulletinBoard.Infrastructure.Identity;
 using BulletinBoard.Infrastructure.Persistence;
+using BulletinBoard.Infrastructure.Persistence.Interceptors;
+using BulletinBoard.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +14,8 @@ public static class ConfigureServices
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<AuditableEntitySaveChangesInterceptor>();
+
         services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     configuration.GetConnectionString("DefaultConnection"),
@@ -28,6 +32,9 @@ public static class ConfigureServices
 
         services.AddIdentityServer()
             .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+
+        services.AddTransient<IDateTime, DateTimeService>();
+        services.AddTransient<IIdentityService, IdentityService>();
 
         services.AddAuthentication()
             .AddIdentityServerJwt();

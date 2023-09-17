@@ -1,5 +1,7 @@
 ﻿using NSwag.Generation.Processors.Security;
 using NSwag;
+using BulletinBoard.Application.Common.Interfaces;
+using WebUI.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -8,6 +10,8 @@ public static class ConfigureServices
     public static IServiceCollection AddWebUIServices(this IServiceCollection services)
     {
         services.AddDatabaseDeveloperPageExceptionFilter();
+
+        services.AddScoped<ICurrentUserService, CurrentUserService>();
 
         services.AddHttpContextAccessor();
 
