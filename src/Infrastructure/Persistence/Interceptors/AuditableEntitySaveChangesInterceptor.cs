@@ -1,8 +1,8 @@
 ﻿using BulletinBoard.Application.Common.Interfaces;
 using BulletinBoard.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 
 namespace BulletinBoard.Infrastructure.Persistence.Interceptors;
 public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
@@ -34,7 +34,10 @@ public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
 
     public void UpdateEntities(DbContext? context)
     {
-        if (context == null) return;
+        if (context == null)
+        {
+            return;
+        }
 
         foreach (var entry in context.ChangeTracker.Entries<BaseAuditableEntity>())
         {

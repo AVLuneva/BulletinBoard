@@ -1,6 +1,6 @@
-﻿using NSwag.Generation.Processors.Security;
+﻿using BulletinBoard.Application.Common.Interfaces;
 using NSwag;
-using BulletinBoard.Application.Common.Interfaces;
+using NSwag.Generation.Processors.Security;
 using WebUI.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;

@@ -1,5 +1,5 @@
-﻿using BulletinBoard.Application.Common.Interfaces;
-using System.Security.Claims;
+﻿using System.Security.Claims;
+using BulletinBoard.Application.Common.Interfaces;
 
 namespace WebUI.Services;
 

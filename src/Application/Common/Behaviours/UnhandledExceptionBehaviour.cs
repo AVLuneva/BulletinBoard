@@ -3,7 +3,8 @@ using Microsoft.Extensions.Logging;
 
 namespace BulletinBoard.Application.Common.Behaviours;
 
-public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
+public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : notnull
 {
     private readonly ILogger<TRequest> _logger;
 
@@ -22,7 +23,7 @@ public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavio
         {
             var requestName = typeof(TRequest).Name;
 
-            _logger.LogError(ex, "CleanArchitecture Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+            _logger.LogError(ex, "BulletinBoard Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
 
             throw;
         }

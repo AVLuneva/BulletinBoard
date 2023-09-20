@@ -1,4 +1,4 @@
-using BulletinBoard.Infrastructure.Persistence;
+﻿using BulletinBoard.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
